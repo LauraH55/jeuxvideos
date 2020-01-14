@@ -7,9 +7,7 @@ body {
 .navbar-brand{
   color: white;
 }
-.card-img-top{
-  width: 250px;
-}
+
 
 .pagination{
   display: flex;
