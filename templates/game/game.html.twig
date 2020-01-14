@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JeuxVideos{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <div class="card-deck mb-4 mt-3">
+    <div class="card">
+      <div class="row">
+        <div class="col md-3">
+            <img src="{{ game.cover }}" class="card-img-top align-center px-5 py-5" alt="Affiche du jeux" width="100%">
+        </div>
+          <div class="col md-6 d-flex align-items-center">
+            <div class="card-body">
+              <h5 class="card-title" <span style="font-weight:bold">{{ game.name }}</h5>
+              <p class="card-text">{{ game.description|slice(0,200) }} ...</p>
+              Sortie : <span style="font-weight:bold">{{ game.date |date('d/m/Y') }}</span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <table class="table">
+      <tr>
+        <td scope="col">Editeur(s) / Développeur(s)</td>
+        <th scope="col">{{ game.editor.name }}</th>
+      </tr>
+      <tr>
+        <td scope="col">Sortie</td>
+        <th scope="col">{{ game.date |date('d/m/Y') }}</th>
+      </tr>
+      <tr>
+        <td scope="col">Classification</td>
+        <th scope="col">{{ game.classification }}</th>
+      </tr>
+      <tr>
+        <td scope="col">Jeuxvideo.com</td>
+        <th scope="col"><a href="{{ game.link }}"</th>En savoir plus</a>
+      </tr>
+  </table>
+</div>
+{% endblock %}

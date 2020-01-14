@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JeuxVideos : les 20 meilleurs jeux !{% endblock %}
+
+{% block stylesheets %}
+
+<style>
+
+.card-img-top{
+  width: 250px;
+
+
+}
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+{% for game in games %}
+<div class="container">
+  <div class="card-deck mb-4 mt-3">
+    <div class="card">
+      <div class="row">
+        <div class="col md-6 md-9 text-center">
+          <a href="{{ path('game', { id: game.id }) }}">
+            <img src="{{ game.cover }}" class="card-img-top" alt="Affiche du jeux">
+          </a>
+        </div>
+          <div class="col md-6 d-flex justify-content-center- align-items-center">
+            <div class="card-body">
+              <h5 class="card-title">{{ game.name }}</h5>
+              <p class="card-text">{{ game.description|slice(0,200) }} ...</p>
+              Sortie : <span style="font-weight:bold">{{ game.date |date('d/m/Y') }}</span>
+            </div>
+          </div>
+      </div>
+      <div class="card-footer text-muted-center mt-3 text-center text-success">
+        <span style="font-weight:bold">{{ game.review }} / 20</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}
