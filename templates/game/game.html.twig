@@ -25,8 +25,12 @@
 <div class="container">
   <table class="table">
       <tr>
+        {% if game.editor == null or game.editor.id == 0 %}
+        {% else %}
+            {{game.editor.name}}
         <td scope="col">Editeur(s) / Développeur(s)</td>
         <th scope="col">{{ game.editor.name }}</th>
+        {% endif %}
       </tr>
       <tr>
         <td scope="col">Sortie</td>
