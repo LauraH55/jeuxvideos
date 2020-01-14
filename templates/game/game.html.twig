@@ -25,10 +25,9 @@
 <div class="container">
   <table class="table">
       <tr>
+        <td scope="col">Editeur(s) / Développeur(s)</td>
         {% if game.editor == null or game.editor.id == 0 %}
         {% else %}
-            {{game.editor.name}}
-        <td scope="col">Editeur(s) / Développeur(s)</td>
         <th scope="col">{{ game.editor.name }}</th>
         {% endif %}
       </tr>
