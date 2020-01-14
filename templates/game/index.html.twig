@@ -17,7 +17,7 @@
 
 {% block body %}
 
-{% for game in games %}
+{% for game in gamesList %}
 <div class="container">
   <div class="card-deck mb-4 mt-3">
     <div class="card">
@@ -42,6 +42,10 @@
   </div>
 </div>
 {% endfor %}
-
+<div class="container pagination">
+  <div class="row">
+    {{ knp_pagination_render(gamesList) }}
+  </div>
+</div>
 
 {% endblock %}

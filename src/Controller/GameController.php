@@ -19,15 +19,21 @@ class GameController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request)
+    public function index(Request $request, PaginatorInterface $paginator)
 
     {
         $games = $this->getDoctrine()
         ->getRepository(Game::class)
-        ->findBY([],['name' => 'ASC']);
+        ->findBy([],['name' => 'ASC']);
+
+          $gamesList = $paginator->paginate(
+          $games, // Requête contenant les données à paginer (ici nos articles)
+          $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+          10 // Nombre de résultats par page
+      );
 
         return $this->render('game/index.html.twig', [
-            'games' => $games,
+            'gamesList' => $gamesList,
         ]);
     }
 

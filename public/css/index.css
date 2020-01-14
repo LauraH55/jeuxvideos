@@ -10,3 +10,9 @@ body {
 .card-img-top{
   width: 250px;
 }
+
+.pagination{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
